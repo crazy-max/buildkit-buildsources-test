@@ -7,9 +7,6 @@ target "image" {
 }
 
 target "image-all" {
-  platforms = [
-    "linux/amd64",
-    "linux/arm/v7",
-    "linux/arm64"
-  ]
+  platforms = ["linux/amd64", "linux/arm64"]
+  output = ["type=oci,dest=/tmp/docker.tar"]
 }
