@@ -1,13 +1,12 @@
 ARG DOCKER_VERSION="20.10.7"
 ARG BUILDKIT_VERSION="0.9.0"
-ARG BUILDX_VERSION="0.6.1"
 ARG COMPOSE_CLI_VERSION="2.0.0-beta.6"
 
 # xx is a helper for cross-compilation
 FROM --platform=$BUILDPLATFORM tonistiigi/xx@sha256:21a61be4744f6531cb5f33b0e6f40ede41fa3a1b8c82d5946178f80cc84bfc04 AS xx
 
-FROM moby/buildkit:v${BUILDKIT_VERSION} as buildkit
-FROM docker/buildx-bin:${BUILDX_VERSION} as buildx
+FROM moby/buildkit:v${BUILDKIT_VERSION} AS buildkit
+FROM docker.io/docker/buildx-bin:0.6.1@sha256:a652ced4a4141977c7daaed0a074dcd9844a78d7d2615465b12f433ae6dd29f0 AS buildx
 
 FROM alpine:3.13 AS base
 COPY --from=xx / /
