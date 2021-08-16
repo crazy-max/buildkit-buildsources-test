@@ -54,7 +54,7 @@ COPY --from=buildkit /usr/bin/buildctl /usr/local/bin/buildctl
 COPY --from=buildkit /usr/bin/buildkit* /usr/local/bin/
 COPY --from=buildx /buildx /usr/libexec/docker/cli-plugins/docker-buildx
 COPY --from=compose-cli /opt/docker-compose /usr/libexec/docker/cli-plugins/docker-compose
-ADD https://github.com/moby/moby/blob/master/README.md /
+ADD https://raw.githubusercontent.com/moby/moby/master/README.md /
 
 # https://github.com/docker-library/docker/pull/166
 #   dockerd-entrypoint.sh uses DOCKER_TLS_CERTDIR for auto-generating TLS certificates
