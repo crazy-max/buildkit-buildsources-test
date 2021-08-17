@@ -1,17 +1,22 @@
 group "default" {
-  targets = ["image-local"]
+  targets = ["local"]
 }
 
 target "image" {
   tags = ["docker:local"]
 }
 
-target "image-local" {
+target "local" {
   inherits = ["image"]
   output = ["type=docker"]
 }
 
-target "image-all" {
+target "nobuildinfo" {
+  inherits = ["image"]
+  output = ["type=docker,buildinfo=false"]
+}
+
+target "all" {
   inherits = ["image"]
   platforms = ["linux/amd64", "linux/arm64"]
   output = ["type=oci,dest=/tmp/docker.tar"]
