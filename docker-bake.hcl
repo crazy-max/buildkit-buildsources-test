@@ -1,22 +1,22 @@
 group "default" {
-  targets = ["local"]
+  targets = ["docker"]
 }
 
 target "image" {
-  tags = ["docker:local"]
+  tags = ["crazymax/buildkit-buildsources-test:latest"]
 }
 
-target "local" {
+target "docker" {
   inherits = ["image"]
   output = ["type=docker"]
 }
 
-target "nobuildinfo" {
+target "nobi" {
   inherits = ["image"]
   output = ["type=docker,buildinfo=false"]
 }
 
-target "all" {
+target "oci" {
   inherits = ["image"]
   platforms = ["linux/amd64", "linux/arm64"]
   output = ["type=oci,dest=/tmp/docker.tar"]

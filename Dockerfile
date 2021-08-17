@@ -1,5 +1,3 @@
-# syntax=crazymax/dockerfile:master
-
 ARG DOCKER_VERSION="20.10.7"
 ARG BUILDKIT_VERSION="0.9.0"
 ARG COMPOSE_CLI_VERSION="2.0.0-beta.6"
