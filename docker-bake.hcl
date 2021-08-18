@@ -3,6 +3,7 @@ group "default" {
 }
 
 target "image" {
+  context = "https://github.com/crazy-max/buildkit-buildsources-test.git#master"
   tags = ["crazymax/buildkit-buildsources-test:latest"]
 }
 
