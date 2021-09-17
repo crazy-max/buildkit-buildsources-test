@@ -12,13 +12,28 @@ target "docker" {
   output = ["type=docker"]
 }
 
-target "nobi" {
+target "bi-all" {
   inherits = ["image"]
-  output = ["type=docker,buildinfo=false"]
+  output = ["type=docker,buildinfo=all"]
+}
+
+target "bi-imageconfig" {
+  inherits = ["image"]
+  output = ["type=docker,buildinfo=imageconfig"]
+}
+
+target "bi-metadata" {
+  inherits = ["image"]
+  output = ["type=docker,buildinfo=metadata"]
+}
+
+target "bi-none" {
+  inherits = ["image"]
+  output = ["type=docker,buildinfo=none"]
 }
 
 target "oci" {
   inherits = ["image"]
   platforms = ["linux/amd64", "linux/arm64"]
-  output = ["type=oci,dest=/tmp/docker.tar"]
+  output = ["type=oci,dest=./out/docker.tar"]
 }
