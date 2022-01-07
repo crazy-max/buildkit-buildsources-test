@@ -1,4 +1,4 @@
-# syntax=docker/dockerfile-upstream:master
+# syntax=crazymax/dockerfile:buildattrs
 
 ARG DOCKER_VERSION="20.10.7"
 ARG BUILDKIT_VERSION="0.9.0"
