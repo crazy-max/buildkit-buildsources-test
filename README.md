@@ -18,10 +18,10 @@ $ docker buildx inspect --bootstrap
 Build image:
 
 ```console
-$ docker buildx bake --metadata-file metadata.json git://github.com/crazy-max/buildkit-buildsources-test.git
+$ docker buildx bake --metadata-file metadata.json https://github.com/crazy-max/buildkit-buildsources-test.git
 ```
 > * `metadata-file` writes the build result to the file
-> * `git://github.com/crazy-max/buildkit-buildsources-test.git` is the remote bake definition (`docker-bake.hcl`)
+> * `https://github.com/crazy-max/buildkit-buildsources-test.git` is the remote bake definition (`docker-bake.hcl`)
 
 `ExporterResponse` in build result contains a new key `containerimage.buildinfo` to be able to use it in the `client.SolveResponse`:
 
