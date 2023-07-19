@@ -60,6 +60,8 @@ COPY --from=buildkit /usr/bin/buildkit* /usr/local/bin/
 COPY --from=buildx /buildx /usr/libexec/docker/cli-plugins/docker-buildx
 COPY --from=compose-cli /opt/docker-compose /usr/libexec/docker/cli-plugins/docker-compose
 COPY --from=http-req /http-req /http-req
+ADD --keep-git-dir=true "https://github.com/moby/buildkit.git#v0.10.1" /buildkit
+ADD --keep-git-dir=true "https://gitlab.com/dpeukert/isidore.git" /gitlab
 ADD https://raw.githubusercontent.com/moby/moby/master/README.md /
 
 # https://github.com/docker-library/docker/pull/166
